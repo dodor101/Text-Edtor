@@ -19,8 +19,9 @@ export const putDb = async (content) => {
    const tx = jateDb.transaction('jate', 'readwrite');
    const store = tx.objectStore('jate');
    const request = store.put({  jate: content });
-   const result = await request;
+  const result = await request;
    console.log('🚀 - data saved to the database', result);
+
 };
 
 // TODO: Add logic for a method that gets all the content from the database
@@ -31,9 +32,16 @@ export const getDb = async () => {
   const store = tx.objectStore('jate');
   const request = store.getAll();
   const result = await request;
-  console.log('result.value', result);
-  return result;
 
+   if (result.length === 0) {
+     // Returns false if no results are found
+     console.log('No previous edits - show JATE header');
+     return false;
+   } else {
+     // Returns the last item if results are found
+     console.log('Previous edit found - show results');
+     return result[result.length - 1].value;
+   }
 };
 
 initdb();
