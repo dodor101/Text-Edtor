@@ -39,6 +39,8 @@ No other contributors
 No test instructions for this yet
 
 <a name="questions"></a>
+
+[Deployed App](https://dd-text-editor.herokuapp.com/)
 ### Questions
 
-If you have any questions, visit my [GitHub profile](https://www.github.com/dodor101) 
+If you have any questions, visit my [GitHub profile](https://www.github.com/dodor101)
